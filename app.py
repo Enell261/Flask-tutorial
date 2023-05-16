@@ -1,4 +1,7 @@
-from flask import Flask, render_template
+import flask
+from flask import Flask, render_template, flash, redirect, request, session, abort
+import os
+
 #initiate app flask incident
 app = Flask(__name__)
 #provide route
@@ -7,7 +10,7 @@ app = Flask(__name__)
 def hello_world():
   return render_template('home.html')
 
-@app.route('/login')
+@app.route('/login', methods=['POST'])
 def login():
   return render_template('login.html')
 
